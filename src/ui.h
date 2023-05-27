@@ -1,6 +1,6 @@
 // SquareLine LVGL GENERATED FILE
 // EDITOR VERSION: SquareLine Studio 1.1.1
-// LVGL VERSION: 8.2.0
+// LVGL VERSION: 8.3.3
 // PROJECT: SquareLine_Project
 
 #ifndef _SQUARELINE_PROJECT_UI_H
@@ -10,30 +10,35 @@
 extern "C" {
 #endif
 
-    #include "lvgl.h"
+#if defined __has_include
+#if __has_include("lvgl.h")
+#include "lvgl.h"
+#elif __has_include("lvgl/lvgl.h")
+#include "lvgl/lvgl.h"
+#else
+#include "lvgl.h"
+#endif
+#else
+#include "lvgl.h"
+#endif
 
-extern lv_obj_t *ui_TELACHECKIN;
-extern lv_obj_t *ui_NOMEDASALA1;
-extern lv_obj_t *ui_STATUS1;
-void ui_event_BOTAO1( lv_event_t * e);
-extern lv_obj_t *ui_BOTAO1;
-extern lv_obj_t *ui_TITULOBOTAO1;
-extern lv_obj_t *ui_TELACHECKIN_TEXTODOBOTAO1;
-extern lv_obj_t *ui_TELAOCUPADA;
-extern lv_obj_t *ui_NOMEDASALA;
-extern lv_obj_t *ui_STATUS;
-void ui_event_BOTAO( lv_event_t * e);
-extern lv_obj_t *ui_BOTAO;
-extern lv_obj_t *ui_TITULOBOTAO;
-void ui_event_TELALIVRE( lv_event_t * e);
-extern lv_obj_t *ui_TELALIVRE;
-extern lv_obj_t *ui_NOMEDASALA2;
-extern lv_obj_t *ui_STATUS2;
-
+extern lv_obj_t * ui_Screen1;
+extern lv_obj_t * ui_Screen1_Label1;
+void ui_event_Screen1_Slider1(lv_event_t * e);
+extern lv_obj_t * ui_Screen1_Slider1;
+extern lv_obj_t * ui_Screen1_Label2;
+extern lv_obj_t * ui_Screen1_Image4;
 
 
+LV_IMG_DECLARE(ui_img_productbakery_png);    // assets\productbakery.png
 
+LV_IMG_DECLARE(ui_img_1535922526);  
 
+// SCREEN: ui_LogoPage
+void ui_LogoPage_screen_init(void);
+void ui_event_LogoPage( lv_event_t * e);
+extern lv_obj_t *ui_LogoPage;
+extern lv_obj_t *ui_LogoWiser;
 
 void ui_init(void);
 

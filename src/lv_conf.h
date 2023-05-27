@@ -19,6 +19,9 @@
 
 #include <stdint.h>
 
+/*Helper*/
+#define __LVGL_V8_3 (8 == 8 && 3 == 3)
+
 /*====================
    COLOR SETTINGS
  *====================*/
@@ -29,14 +32,19 @@
 /*Swap the 2 bytes of RGB565 color. Useful if the display has an 8-bit interface (e.g. SPI)*/
 #define  LV_COLOR_16_SWAP 0
 
+/*Enable features to draw on transparent background.
+ *It's required if opa, and transform_* style properties are used.
+ *Can be also used if the UI is above another layer, e.g. an OSD menu or video player.*/
+#define LV_COLOR_SCREEN_TRANSP (__LVGL_V8_3 ? 1 : 0)
+
 /*Enable more complex drawing routines to manage screens transparency.
  *Can be used if the UI is above another layer, e.g. an OSD menu or video player.
  *Requires `LV_COLOR_DEPTH = 32` colors and the screen's `bg_opa` should be set to non LV_OPA_COVER value*/
-#define LV_COLOR_SCREEN_TRANSP 0
+// #define LV_COLOR_SCREEN_TRANSP 0
 
 /* Adjust color mix functions rounding. GPUs might calculate color mix (blending) differently.
  * 0: round down, 64: round up from x.75, 128: round up from half, 192: round up from x.25, 254: round up */
-#define LV_COLOR_MIX_ROUND_OFS (LV_COLOR_DEPTH == 32 ? 0: 128)
+#define LV_COLOR_MIX_ROUND_OFS 0
 
 /*Images pixels with this color will not be drawn if they are chroma keyed)*/
 #define LV_COLOR_CHROMA_KEY lv_color_hex(0x00ff00)         /*pure green*/
@@ -331,16 +339,16 @@
 #define LV_FONT_MONTSERRAT_12 0
 #define LV_FONT_MONTSERRAT_14 0
 #define LV_FONT_MONTSERRAT_16 0
-#define LV_FONT_MONTSERRAT_18 0
-#define LV_FONT_MONTSERRAT_20 0
-#define LV_FONT_MONTSERRAT_22 0
+#define LV_FONT_MONTSERRAT_18 1
+#define LV_FONT_MONTSERRAT_20 1
+#define LV_FONT_MONTSERRAT_22 1
 #define LV_FONT_MONTSERRAT_24 1
 #define LV_FONT_MONTSERRAT_26 1
 #define LV_FONT_MONTSERRAT_28 0
 #define LV_FONT_MONTSERRAT_30 1
 #define LV_FONT_MONTSERRAT_32 0
 #define LV_FONT_MONTSERRAT_34 0
-#define LV_FONT_MONTSERRAT_36 0
+#define LV_FONT_MONTSERRAT_36 1
 #define LV_FONT_MONTSERRAT_38 0
 #define LV_FONT_MONTSERRAT_40 0
 #define LV_FONT_MONTSERRAT_42 0
@@ -433,7 +441,7 @@
 
 /*Documentation of the widgets: https://docs.lvgl.io/latest/en/html/widgets/index.html*/
 
-#define LV_USE_ARC        0
+#define LV_USE_ARC        1
 
 #define LV_USE_ANIMIMG    1
 
@@ -516,7 +524,7 @@
 
 #define LV_USE_SPINBOX    0
 
-#define LV_USE_SPINNER    0
+#define LV_USE_SPINNER    1
 
 #define LV_USE_TABVIEW    1
 
